@@ -1,13 +1,17 @@
 :- include(starter(include/common)).
 
-:- begin_tests('starter:starter/2').
+:- begin_tests('starter unit tests').
 
-test('verify library version', [true(Got == Expected)]) :-
+test('version: library version', [true(Got == Expected)]) :-
     Expected = [0, 0, 1],
     starter:version(Got).
 
-test('Starter word transformed to upper case', true(Got == Expected)) :-
+test('name_uppercase: name transformed to upper case', true(Got == Expected)) :-
     Expected = "STARTER",
-    starter:starter("Starter", Got).
+    starter:name_uppercase("starter", Got).
 
-:- end_tests('starter:starter/1').
+test('name_lowercase_reverse: name transformed to lower case and reversed', true(Got == Expected)) :-
+    Expected = "retrats",
+    starter:name_lowercase_reverse("STARTER", Got).
+
+:- end_tests('starter unit tests').
