@@ -31,7 +31,8 @@ starter_configure_path(PathPrefix, PathSuffix, Name) :-
 starter_load_project_modules :-
     %% TODO: Look into pldoc
     use_module(library(pldoc), []),  % Load first to enable comment processing
-    use_module(starter(starter), []).
+    use_module(starter(starter), []),
+    use_module(starter(substarter), []).
 
 starter_load_project_tests :-
     plunit:load_test_files([]).

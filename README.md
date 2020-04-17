@@ -10,6 +10,11 @@ To convert this template to your own project:
 3. Replace `src/starter.plt` and `src/substarter.plt` with your own tests.
 4. Use `make <target>` where `<target>` is either `test`, `cov` or `repl`, to compile and run your program.
 
+## Makefile explanation
+1. `make test` will compile the source code, and run the unit tests.
+2. `make cov` performs step 1 and, in addition, will print information about coverage by file (e.g., number of clauses).
+3. `make repl` will compile the source code, and will start the Prolog top level (i.e., REPL).  Note that you can run a unit test(s) in the top level with [run_tests/1](https://www.swi-prolog.org/search?for=run_tests).
+
 ## License
 Licensed under the MIT license which can be found in the file
 `LICENSE` in the project root.
