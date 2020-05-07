@@ -1,13 +1,16 @@
-/** <module> starter
- *
- *   @see <http://github.com/adkelley/prolog-starter
- *
- %   Replace these xx with your own
- */
+/** <module> Prolog starter template main module
+
+This is an example structure for modular software development in Prolog.
+
+@author Fixme
+@copyright Fixme
+@license Fixme
+@see <http://github.com/adkelley/prolog-starter
+*/
 
 :- module(_, [ starter/0
-             , name_uppercase/2
-             , name_lowercase_reverse/2
+             , string_uppercase/2
+             , string_lowercase_reverse/2
              , version/1
              ]).
 
@@ -16,46 +19,45 @@
 :- use_module(substarter, []).
 :- use_module(util, []).
 
-%%  version(?Version) is semidet.
+%!  version(?Version) is det.
 %
 %   True if version is a list representing the major, minor
 %   and patch version numbers of this library.
 
 version([0,0,1]).
 
-%% starter/0 is det
-%% starter(+Name, ?Uppercase) is semidet
+%! starter is det
 %
-%  Note: Replace these with your own main program
+%  Replace these modules with your own main program
 %
 
 starter :-
     core:writeln("Hello, Starter!").
 
-%% name_uppercase(+Name, -UpperCase)
+%! string_uppercase(+String, -UpperCase) is semidet
 %
-% transform a Name string to UpperCase
+% Transform a String string to UpperCase
 %
 
-name_uppercase(Name, UpperCase) :-
+string_uppercase(String, UpperCase) :-
     core:var(UpperCase),
     !,
-    core:string_upper(Name, UpperCase).
+    core:string_upper(String, UpperCase).
 
-name_uppercase(_Name, _Uppercase) :-
-    util:throw_error(instantiation, name_uppercase/2, "UpperCase argument must be a free variable").
+string_uppercase(_String, _Uppercase) :-
+    util:throw_error(instantiation, starter:string_uppercase/2, "UpperCase argument must be a free variable").
 
-%% name_lowercase_reverse(Name, LowerReverse)
+%! string_lowercase_reverse(String, LowerReverse) is semidet
 %
-%  convert Name to lowercase and reverse it
+%  convert String to lowercase and reverse it
 %
-name_lowercase_reverse(Name, LowerCaseReversed) :-
+string_lowercase_reverse(String, LowerCaseReversed) :-
     core:var(LowerCaseReversed),
     !,
-    substarter:name_lowercase(Name, LowerCase),
+    substarter:string_lowercase(String, LowerCase),
     core:string_chars(LowerCase, LowerCaseList),
     core:reverse(LowerCaseList, ReversedList),
     core:text_to_string(ReversedList, LowerCaseReversed).
 
-name_lowercase_reverse(_Name, _LowerCaseReversed) :-
-    util:throw_error(instantiation, name_lowercase_reverse/2, "LowerCaseReversed argument must be a free variable").
+string_lowercase_reverse(_String, _LowerCaseReversed) :-
+    util:throw_error(instantiation, starter:string_lowercase_reverse/2, "LowerCaseReversed argument must be a free variable").

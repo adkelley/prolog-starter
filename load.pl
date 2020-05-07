@@ -1,10 +1,18 @@
-% Acts as an interface to the system. Configures load paths and provides
-% predicates for initiating the system.
+/** <module> Interface for Prolog starter template.
 
-% To configure for your own project, replace 'starter', with the name
-% of your main program file.
+Acts as an interface to the system. Configures load paths and provides
+predicates for initiating the system.
 
-% Configures internal load paths in preparation of use_module calls.
+To configure for your own project, replace 'starter', with the name
+of your main program file.
+
+Configures internal load paths in preparation of use_module calls.
+Provides predicates for adding an entity to the current database
+
+@author Fixme
+@copyright Fixme
+@license Fixme
+*/
 
 starter_configure_globals :-
     set_test_options([load(always)]).
@@ -25,6 +33,11 @@ starter_configure_path(PathPrefix, PathSuffix, Name) :-
 % Set everything up
 :- starter_configure_globals.
 :- starter_configure_load_paths.
+
+% documentation - uncomment to run documentation server
+%:- doc_server(4000).
+%:- portray_text(true).
+
 
 :- include(starter(include/common)).
 
