@@ -1,4 +1,5 @@
-# Starter Template for SWI-Prolog Projects
+![series_banner](resources/banner.png)
+# Template for new SWI-Prolog projects
 
 Before proceeding with the instructions below, be sure to download and install [SWI-Prolog](https://www.swi-prolog.org/Download.html).
 ## Instructions

@@ -7,3 +7,5 @@ Icon?
 .Spotlight-V100
 .Trashes
 lib/*
+resources/*.sketch
+resources/*.xcf
