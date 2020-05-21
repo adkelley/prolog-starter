@@ -18,7 +18,7 @@ starter_configure_globals :-
     set_test_options([load(always)]).
 
 
-% starter_configure_load_paths is det
+% starter_configure_load_paths() is det
 %
 % Configures internal load paths in preparation of use_module calls.
 
@@ -50,7 +50,7 @@ starter_load_project_modules :-
 starter_load_project_tests :-
     plunit:load_test_files([]).
 
-%% starter_test is det.
+%% starter_test() is det.
 %
 %  Loads everything and runs test suite
 
@@ -63,7 +63,7 @@ starter_run_test_suite :-
     core:format('~n% Run tests ...~n'),
     plunit:run_tests.
 
-%%  starter_cov is det.
+%%  starter_cov() is det.
 %
 %   Loads everything and runs the test suite with coverage analysis.
 
@@ -76,10 +76,29 @@ starter_run_test_suite_with_coverage :-
     core:format('~n% Run tests ...~n'),
     plunit:show_coverage(plunit:run_tests).
 
-%% starter_repl is det.
+%% starter_repl() is det.
 %
 %  Loads everything and enters interactive mode.
 
 starter_repl :-
     starter_load_project_modules,
     starter_load_project_tests.
+
+
+%% starter_args() is det.
+%
+%  Loads everything and executes a goal entered by the user from the command line.
+%  Format of command line args is Module Name ExtraArgs, where Name is the
+%  predicate you wish to run.  See Makefile
+%
+starter_args :-
+    starter_load_project_modules,
+    core:current_prolog_flag(argv, [M,Name|ExtraArgs]),
+    format('Goal: ~w:~w~n', [M,Name]),
+    go(M:Name, ExtraArgs).
+
+go(_,[]).
+go(M:Name, [Arg|Args]) :-
+    core:apply(M:Name, [Arg, Result]),
+    core:format('Argument: ~w, Result: ~w~n', [Arg,Result]),
+    go(M:Name, Args).

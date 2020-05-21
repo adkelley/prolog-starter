@@ -1,7 +1,6 @@
 # Starter Template for SWI-Prolog Projects
 
-Before proceeding with the instructions below, be sure to download and install [SWI-Prolog](https://www.swi-prolog.org/Download.html).  Note, for MacOSX, I prefer to use [Homebrew](https://formulae.brew.sh/formula/swi-prolog) instead.
-
+Before proceeding with the instructions below, be sure to download and install [SWI-Prolog](https://www.swi-prolog.org/Download.html).
 ## Instructions
 
 To convert this template to your own project:
@@ -14,6 +13,7 @@ To convert this template to your own project:
 1. `make test` will compile the source code, and run the unit tests.
 2. `make cov` performs step 1 and, in addition, will print information about coverage by file (e.g., number of clauses).
 3. `make repl` will compile the source code, and will start the Prolog top level (i.e., REPL).  Note that you can run a unit test(s) in the top level with [run_tests/1](https://www.swi-prolog.org/search?for=run_tests).
+4. `make args ARGS="Module Goal ExtraArgs"` will compile the source code, and apply `Module:Goal` with the `ExtraArgs`. For example, `ARGS="starter string_uppercase 'hello'"` calls `starter:string_uppercase('hello', Result)`.  Note that `Result` is an unbound variable supplied by `load.pl`. Its possible to supply your own unbound variables, but it requires more pattern matching than what I've coded in `load.pl`.
 
 ## License
 Licensed under the MIT license which can be found in the file

@@ -14,3 +14,11 @@ cov:
 repl:
 	@ echo "-- Load and enter REPL ..."
 	$(PROLOG) -s load -g starter_repl
+
+#
+# Args="Module Goal ExtraArgs"
+#
+.PHONY: args
+args:
+	@ echo "-- Load and execute goal from command line args ..."
+	$(PROLOG) -s load -g starter_args -t halt -- $(ARGS)
