@@ -7,7 +7,7 @@ To convert this template to your own project:
 1. Replace the word *starter* with the name of your main program in both `Makefile` and `load.pl`.
 2. Replace `src/starter.pl` and `src/substarter.pl` with your own main program.
 3. Replace `src/starter.plt` and `src/substarter.plt` with your own tests.
-4. Use `make <target>` where `<target>` is either `test`, `cov` or `repl`, to compile and run your program.
+4. Use `make <target>` where `<target>` is either `test`, `cov`, `repl`, or `args` to compile and run your program.
 
 ## Makefile explanation
 1. `make test` will compile the source code, and run the unit tests.
