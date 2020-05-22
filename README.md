@@ -9,6 +9,7 @@ To convert this template to your own project:
 2. Replace `src/starter.pl` and `src/substarter.pl` with your own main program.
 3. Replace `src/starter.plt` and `src/substarter.plt` with your own tests.
 4. Use `make <target>` where `<target>` is either `test`, `cov`, `repl`, or `args` to compile and run your program.
+5. Uncomment lines 37-39 in `load.pl` to run a `pldoc` documentation server locally (see References)
 
 ## Makefile explanation
 1. `make test` will compile the source code, and run the unit tests.
